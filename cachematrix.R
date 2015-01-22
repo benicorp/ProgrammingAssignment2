@@ -7,16 +7,19 @@
 ## which can be used to both get and set the matrix as well as its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-    inv <- NULL
+    inv <- NULL ## Store the matrix's inverse.
+    ## Set and get functions for the matrix.
     set <- function(y) {
         x <<- y
-        inv <<- NULL
+        inv <<- NULL ## Remove the cached inverse for a new matrix.
     }
     get <- function() x
+    ## Set and get functions for the inverse.
     setinverse <- function(inverse) {
         inv <<- inverse
     }
     getinverse <- function() inv
+    ## Return a named list of the get and set functions.
     list(set = set, get = get,
          setinverse = setinverse, 
          getinverse = getinverse)
